@@ -2,59 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import { ProgressBar } from 'reprogressbars'
 
-const Upload = (props) => {
-    const [file, setFile] = useState("");
-    const [fileSubmitted, setFileSubmitted] = useState(false);
-    const [transcription, setTranscription] = useState("");
-
-
-    const fileURLHandler = (event) => {
-        event.preventDefault()
-        console.log(event.target.value)
-        setFile(event.target.value)
-        setFileSubmitted(false);
-    }
-
-    const submitHandler = (event) => {
-        event.preventDefault()
-        console.log("button pressed!")
-        console.log(file)
-        setFileSubmitted(true);
-
-        axios.post('/url', {
-          url: file
-        })
-        .then(function (response)  {
-          console.log(response.data);
-          setTranscription(response.data);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
-      return (
-          <p>{file}</p>
-      )
-    }
-
-    const displayTrans = () => {
-        return (
-            <p>{transcription}</p>
-        )
-    }
-
-    return (
-        <div class="upload">
-            <h3>Paste your audio file link here.</h3>
-            <form>
-              <input type="text" onChange={fileURLHandler}/>
-              <button type="submit" onClick={submitHandler}>Upload</button>
-            </form>
-            {fileSubmitted ? displayTrans() : ""}
-        </div>
-    )
-}
 
 const Why = (props) => {
     return (
@@ -130,6 +79,62 @@ const Team = (props) => {
 const App = (props) => {
     const [notes, setNotes] = useState(props.notes);
     const [newNote, setNewNote] = useState("a new note...");
+    const [isLoading, setIsLoading] = useState(true);
+
+    const Upload = (props) => {
+        const [file, setFile] = useState("");
+        const [fileSubmitted, setFileSubmitted] = useState(false);
+        const [transcription, setTranscription] = useState("");
+
+
+        const fileURLHandler = (event) => {
+            event.preventDefault()
+            console.log(event.target.value)
+            setFile(event.target.value)
+            setFileSubmitted(false);
+        }
+
+        const submitHandler = (event) => {
+            event.preventDefault()
+            console.log("button pressed!")
+            console.log(file)
+            setFileSubmitted(true);
+
+            axios.post('/url', {
+              url: file
+            })
+            .then(function (response)  {
+              console.log(response.data);
+              setTranscription(response.data);
+              setIsLoading(false);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+
+          return (
+              <p>{file}</p>
+          )
+        }
+
+        const displayTrans = () => {
+            return (
+                <p>{transcription}</p>
+            )
+        }
+
+        return (
+            <div class="upload">
+                <h3>Paste your audio file link here.</h3>
+                <form>
+                  <input type="text" onChange={fileURLHandler}/>
+                  <button type="submit" onClick={submitHandler}>Upload</button>
+                </form>
+                {fileSubmitted ? displayTrans() : ""}
+            </div>
+        )
+    }
+
 
     const addNote = (event) => {
         event.preventDefault();
@@ -166,6 +171,7 @@ const App = (props) => {
             <Why />
             <How />
             <Upload />
+            <ProgressBar isLoading={isLoading} height="4px" color="#B71C1C" />
             <Team />
 
             <p></p>
