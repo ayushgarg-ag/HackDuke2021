@@ -70,7 +70,7 @@ const Team = (props) => {
         <div class="team">
             <p>
                 Built @ HackDuke:
-                    Ayush / Aditya / Prajwal / Bob / Vaibhov
+                    Ayush / Aditya / Prajwal / Bob / Vaibhav
             </p>
         </div>
     )
@@ -79,7 +79,7 @@ const Team = (props) => {
 const App = (props) => {
     const [notes, setNotes] = useState(props.notes);
     const [newNote, setNewNote] = useState("a new note...");
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const Upload = (props) => {
         const [file, setFile] = useState("");
@@ -94,11 +94,13 @@ const App = (props) => {
             setFileSubmitted(false);
         }
 
+
         const submitHandler = (event) => {
             event.preventDefault()
             console.log("button pressed!")
             console.log(file)
             setFileSubmitted(true);
+            setInterval(() => {setIsLoading(true)}, 5000);
 
             axios.post('/url', {
               url: file
@@ -171,7 +173,6 @@ const App = (props) => {
             <Why />
             <How />
             <Upload />
-            <ProgressBar isLoading={isLoading} height="4px" color="#B71C1C" />
             <Team />
 
             <p></p>
