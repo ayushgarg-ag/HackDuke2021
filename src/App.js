@@ -78,13 +78,11 @@ const Team = (props) => {
 
 const App = (props) => {
     const [isLoading, setIsLoading] = useState(false);
+    const [file, setFile] = useState("");
+    const [fileSubmitted, setFileSubmitted] = useState(false);
+    const [transcription, setTranscription] = useState("");
 
     const Upload = (props) => {
-        const [file, setFile] = useState("");
-        const [fileSubmitted, setFileSubmitted] = useState(false);
-        const [transcription, setTranscription] = useState("");
-
-
         const fileURLHandler = (event) => {
             event.preventDefault()
             console.log(event.target.value)
@@ -106,6 +104,7 @@ const App = (props) => {
               console.log(response.data);
               setTranscription(response.data);
               setIsLoading(false);
+              console.log("Got the info back!")
             })
             .catch(function (error) {
               console.log(error);
@@ -149,6 +148,7 @@ const App = (props) => {
             <Why />
             <How />
             <Upload />
+            <ProgressBar isLoading={isLoading} />
             <Team />
 
             <p></p>
