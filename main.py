@@ -2,13 +2,20 @@ from flask import Flask, request
 # from requests.api import request
 from converter import audio_file_to_text, to_text
 import json
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 
-@app.route("/")
-def main():
-    return "<h1>Hello!</h1>"
 
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
 
 # @app.route("/file", methods=['POST', 'GET'])
 # def file_to_text():
@@ -31,5 +38,7 @@ def url_to_text():
         return transcript
 
 
+# if __name__ == "__main__":
+#     app.run(host='localhost')
 if __name__ == "__main__":
-    app.run(host='localhost')
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))

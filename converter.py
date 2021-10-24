@@ -5,7 +5,7 @@ import pprint
 upload_endpoint = 'https://api.assemblyai.com/v2/upload'
 transcript_endpoint = "https://api.assemblyai.com/v2/transcript"
 headers = {
-    "authorization": "9c25efd20b634ffca33457db23a0fa74",
+    "authorization": "2f62101ab6d142739f8f5fb89665c72e",
     "content-type": "application/json"
 }
 
