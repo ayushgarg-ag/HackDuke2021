@@ -111,13 +111,13 @@ const App = (props) => {
             });
 
           return (
-              <p class="transcript">{file}</p>
+              <p>{file}</p>
           )
         }
 
         const displayTrans = () => {
             return (
-                <p>{transcription}</p>
+                <p class="transcript">{transcription}</p>
             )
         }
 
