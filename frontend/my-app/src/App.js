@@ -82,6 +82,10 @@ const App = (props) => {
     const [fileSubmitted, setFileSubmitted] = useState(false);
     const [transcription, setTranscription] = useState("");
 
+    useEffect(()=> {
+        document.title = "SpeechyNotes"
+      }, []);
+
     const Upload = (props) => {
         const fileURLHandler = (event) => {
             event.preventDefault()
