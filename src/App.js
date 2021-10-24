@@ -44,7 +44,7 @@ const How = (props) => {
 
             <ol>
                 <li><strong>Record.</strong> The lecturer records their audio during the class — this requires no complicated virtual-learning technical setup. </li>
-                <li><strong>Upload</strong> the audio file to LectureNotes.</li>
+                <li><strong>Upload</strong> the audio file to SpeechyNotes.</li>
                 <li><strong>Notes.</strong> The hybrid student can now stay up-to-date with a live transcript of the class.</li>
             </ol>
         </div>
