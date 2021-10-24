@@ -17,6 +17,13 @@ p, li, h2, h3 {
     color: #27230c;
 }
 
+.transcript {
+    text-align: left;
+    font-size: 1.1em;
+    width: 70%;
+    margin: 0 auto;
+}
+
 .title {
     padding-top: 200px;
     padding-bottom: 50px;
