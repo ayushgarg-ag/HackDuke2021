@@ -111,7 +111,7 @@ const App = (props) => {
             });
 
           return (
-              <p>{file}</p>
+              <p class="transcript">{file}</p>
           )
         }
 
