@@ -8,7 +8,7 @@ import { ProgressBar } from 'reprogressbars'
 const Why = (props) => {
     return (
         <div class="why">
-            <h2>Why LectureNotes?</h2>
+            <h2>Why SpeechyNotes?</h2>
 
             <p>As schools adjust to new pandemic guidelines,
             learning formats are up-in-the-air.</p>
@@ -20,14 +20,14 @@ const Why = (props) => {
             </p>
 
             <p>
-                For those folks, if the proper virtual-learning technology
-                is not properly in-place in the classroom,
-                there are many barriers to attending class.
+                For those folks, there are many barriers to attending class,
+                especially if proper virtual-learning technology (cameras, audio recording)
+                are not set up.
             </p>
 
             <p>
-                LectureNotes makes it easy for both the lecturer and the
-                hybrid student
+                SpeechyNotes makes it easy for both the lecturer and the
+                hybrid student.
             </p>
 
             <ul>
@@ -137,11 +137,11 @@ const App = (props) => {
         <div>
             <div class="title">
                 <div class="logo">
-                    <p>LectureNotes</p>
+                    <p>SpeechyNotes</p>
                 </div>
                 <div class="desc">
                     <h1>Transcribe Your Lecture</h1>
-                    <p>With LectureNotes, an audio-to-text tool</p>
+                    <p>With SpeechyNotes, an audio-to-text tool</p>
                     <Scroll />
                 </div>
             </div>
