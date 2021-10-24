@@ -77,8 +77,6 @@ const Team = (props) => {
 }
 
 const App = (props) => {
-    const [notes, setNotes] = useState(props.notes);
-    const [newNote, setNewNote] = useState("a new note...");
     const [isLoading, setIsLoading] = useState(false);
 
     const Upload = (props) => {
@@ -94,13 +92,12 @@ const App = (props) => {
             setFileSubmitted(false);
         }
 
-
         const submitHandler = (event) => {
             event.preventDefault()
             console.log("button pressed!")
             console.log(file)
             setFileSubmitted(true);
-            setInterval(() => {setIsLoading(true)}, 5000);
+            setIsLoading(true);
 
             axios.post('/url', {
               url: file
@@ -135,27 +132,6 @@ const App = (props) => {
                 {fileSubmitted ? displayTrans() : ""}
             </div>
         )
-    }
-
-
-    const addNote = (event) => {
-        event.preventDefault();
-        console.log("button clicked", event.target);
-
-        const noteObject = {
-            id: notes.length + 1,
-            content: newNote,
-            date: new Date().toISOString(),
-            important: Math.random() < 0.5
-        }
-
-        setNotes(notes.concat(noteObject));
-        setNewNote("");
-    }
-
-    const handleNoteChange = (event) => {
-        console.log(event.target.value);
-        setNewNote(event.target.value);
     }
 
     return (
