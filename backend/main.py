@@ -1,13 +1,15 @@
-from flask import Flask, request
+import os
+from flask import Flask, request, render_template
+from flask.helpers import send_from_directory
 # from requests.api import request
 from converter import audio_file_to_text, to_text
 import json
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="build/static", template_folder="build")
 
 @app.route("/")
-def main():
-    return "<h1>Hello! Two</h1>"
+def hello():
+    return render_template('index.html')
 
 
 # @app.route("/file", methods=['POST', 'GET'])
