@@ -1,5 +1,7 @@
 # SpeechyNotes
-Team: Vaihbav, Bob, Praj, Aditya, Ayush
+<img width="1755" alt="SpeechyNotes Home Page 1" src="https://github.com/ayushgarg-ag/HackDuke2021/assets/41592998/5f19867f-a4c5-485f-9b08-b02958a850a6">
+<img width="1761" alt="SpeechyNotes Home Page 2" src="https://github.com/ayushgarg-ag/HackDuke2021/assets/41592998/e09755ce-f1e9-45d2-a5d1-a65addbbad4b">
+<img width="1751" alt="SpeechyNotes Home Page 3" src="https://github.com/ayushgarg-ag/HackDuke2021/assets/41592998/4cbb04f5-e9cf-4d0e-b99e-a40a9860beae">
 
 ## Track
 Education
@@ -24,3 +26,6 @@ We all gained experience with web-development, passing data from backend to fron
 
 ## What's next for SpeechyNotes
 We hope to improve the speed of transcription and add a feature to directly upload audio files to the site.
+
+## Team
+Team: Vaihbav, Bob, Praj, Aditya, Ayush
